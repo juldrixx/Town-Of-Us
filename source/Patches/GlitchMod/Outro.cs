@@ -14,7 +14,7 @@ namespace TownOfUs.GlitchMod
             if (role == null) return;
             if (Roles.Role.GetRoles(RoleEnum.Jester).Any(x => ((Jester) x).VotedOut)) return;
             PoolablePlayer[] array = Object.FindObjectsOfType<PoolablePlayer>();
-            array[0].NameText.text = role.ColorString + array[0].NameText.text;
+            array[0].NameText.text = role.ColorString + array[0].NameText.text + "</color>";
             __instance.BackgroundBar.material.color = role.Color;
             var text = Object.Instantiate(__instance.WinText);
             text.text = "The Glitch wins";
@@ -22,7 +22,7 @@ namespace TownOfUs.GlitchMod
             var pos = __instance.WinText.transform.localPosition;
             pos.y = 1.5f;
             text.transform.position = pos;
-            text.fontSize = 1f;
+            text.text = "<size=4>" + text.text + "</size>";
         }
     }
 }

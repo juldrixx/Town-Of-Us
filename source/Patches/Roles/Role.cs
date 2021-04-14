@@ -86,7 +86,7 @@ namespace TownOfUs.Roles
         public static uint NetId => PlayerControl.LocalPlayer.NetId;
         public string PlayerName { get; set; } 
 
-        public string ColorString => "[" + Color.ToHtmlStringRGBA() + "]";
+        public string ColorString => "<color=#" + Color.ToHtmlStringRGBA() + ">";
 
 
         //public static T Gen<T>()
@@ -210,12 +210,12 @@ namespace TownOfUs.Roles
             {
                 var task = new GameObject(Name + "Task").AddComponent<ImportantTextTask>();
                 task.transform.SetParent(Player.transform, false);
-                task.Text = $"{ColorString}Role: {Name}\n{TaskText()}[]";
+                task.Text = ColorString + "Role: {Name}\n{TaskText()}"+ "</color>";
                 Player.myTasks.Insert(0, task);
                 return;
             }
 
-            Player.myTasks.ToArray()[0].Cast<ImportantTextTask>().Text = $"{ColorString}Role: {Name}\n{TaskText()}[]";
+            Player.myTasks.ToArray()[0].Cast<ImportantTextTask>().Text = ColorString + "Role: {Name}\n{TaskText()}" + "</color>";
         }
 
         public static Role Gen(Type T, List<PlayerControl> crewmates, CustomRPC rpc)

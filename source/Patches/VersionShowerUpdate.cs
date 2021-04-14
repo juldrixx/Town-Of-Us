@@ -1,5 +1,4 @@
 using HarmonyLib;
-using UnityEngine;
 
 namespace TownOfUs {
 
@@ -11,7 +10,8 @@ namespace TownOfUs {
         public static void Postfix(VersionShower __instance)
         {
             var text = __instance.text;
-            text.text += " - <color=#00FF00FF>TownOfUs v2.0.1</color>";
+            //text.Text += "\nloaded [FFBFCCFF]T[FF80D5FF]o[FFCC00FF]w[704FA8FF]n[FF0000FF] of[CC4D00FF] Us [FFFFFFFF]by [00FF00FF]slushiegoose[FFFFFFFF] ";
+            text.text += " - <color=#00FF00FF>ProxyOfUs v2.0.1</color>";
         }
     }
 }

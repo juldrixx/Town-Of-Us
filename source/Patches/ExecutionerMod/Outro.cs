@@ -14,7 +14,7 @@ namespace TownOfUs.ExecutionerMod
             var role = Role.AllRoles.FirstOrDefault(x => x.RoleType == RoleEnum.Executioner && ((Executioner) x).TargetVotedOut);
             if (role == null) return;
             PoolablePlayer[] array = Object.FindObjectsOfType<PoolablePlayer>();
-            array[0].NameText.text = role.ColorString + array[0].NameText.text;
+            array[0].NameText.text = role.ColorString + array[0].NameText.text + "</color>";
             __instance.BackgroundBar.material.color = role.Color;
             var text = Object.Instantiate(__instance.WinText);
             text.text = "Executioner wins";
@@ -22,7 +22,7 @@ namespace TownOfUs.ExecutionerMod
             var pos = __instance.WinText.transform.localPosition;
             pos.y = 1.5f;
             text.transform.position = pos;
-            text.fontSize = 1f;
+            text.text = "<size=4>" + text.text + "</size>";
         }
     }
 }

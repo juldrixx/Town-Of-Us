@@ -37,7 +37,7 @@ namespace TownOfUs.LoversMod
 			{
 				array[0].gameObject.transform.position -= new Vector3(1.5f, 0f, 0f);
 				array[0].SetFlipX(true);
-				array[0].NameText.text = "[FF80D5FF]" + array[0].NameText.text;
+				array[0].NameText.text = "<color=#FF80D5FF>" + array[0].NameText.text + "</color>";
 			}
 
 			if (array[1] != null)
@@ -46,7 +46,7 @@ namespace TownOfUs.LoversMod
 				array[1].gameObject.transform.position = array[0].gameObject.transform.position + new Vector3(1.2f, 0f, 0f);
 				array[1].gameObject.transform.localScale *= 0.92f;
 				array[1].HatSlot.transform.position += new Vector3(0.1f, 0f, 0f);
-				array[1].NameText.text = "[FF80D5FF]" + array[1].NameText.text;
+				array[1].NameText.text = "<color=#FF80D5FF>" + array[1].NameText.text + "</color>";
 			}
 			__instance.BackgroundBar.material.color = new Color(1f, 0.4f, 0.8f, 1f);
 			

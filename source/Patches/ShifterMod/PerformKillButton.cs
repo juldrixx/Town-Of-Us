@@ -186,7 +186,7 @@ namespace TownOfUs.ShifterMod
                         var target = executioner.target;
                         if (other == target)
                         {
-                            executioner.target.nameText.color = Color.white;
+                            executioner.target.nameText.color = Color.white;;
                             executioner.target = shifter;
                             
                             executioner.RegenTask();
