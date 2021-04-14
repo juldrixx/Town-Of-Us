@@ -5,10 +5,10 @@ using TownOfUs.Roles;
 
 namespace TownOfUs.GlitchMod
 {
-    [HarmonyPatch(typeof(IntroCutscene._CoBegin_d__11), nameof(IntroCutscene._CoBegin_d__11.MoveNext))]
+    [HarmonyPatch(typeof(IntroCutscene.Nested_0), nameof(IntroCutscene.Nested_0.MoveNext))]
     class Start
     {
-        static void Postfix(IntroCutscene._CoBegin_d__11 __instance)
+        static void Postfix(IntroCutscene.Nested_0 __instance)
         {
             var glitch = Role.AllRoles.FirstOrDefault(x => x.RoleType == RoleEnum.Glitch);
             if (glitch != null)

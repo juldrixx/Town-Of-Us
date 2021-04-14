@@ -378,7 +378,7 @@ namespace TownOfUs.CustomOption
 
                 if (!Scroller.gameObject.active) return;
 
-                int rows = __instance.GameSettings.Text.Count(c => c == '\n');
+                int rows = __instance.GameSettings.text.Count(c => c == '\n');
                 float maxY = Mathf.Max(MinY, rows * LobbyTextRowHeight + (rows - 38) * LobbyTextRowHeight);
 
                 Scroller.YBounds = new FloatRange(MinY, maxY);

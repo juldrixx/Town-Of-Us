@@ -71,14 +71,14 @@ namespace TownOfUs.CustomOption
                     float newValue = (float) Value;
 
                     number.Value = number.oldValue = newValue;
-                    number.ValueText.Text = ToString();
+                    number.ValueText.text = ToString();
                 }
                 else if (Setting is StringOption str)
                 {
                     int newValue = (int) Value;
 
                     str.Value = str.oldValue = newValue;
-                    str.ValueText.Text = ToString();
+                    str.ValueText.text = ToString();
                 }
 
             }

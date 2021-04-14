@@ -20,7 +20,7 @@ namespace TownOfUs.CustomOption
         public override void OptionCreated()
         {
             base.OptionCreated();
-            Setting.Cast<ToggleOption>().TitleText.Text = Name;
+            Setting.Cast<ToggleOption>().TitleText.text = Name;
         }
     }
 }

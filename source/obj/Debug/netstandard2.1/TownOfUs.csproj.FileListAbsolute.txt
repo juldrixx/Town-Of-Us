@@ -1,0 +1,11 @@
+C:\Users\juldr\Documents\Town-Of-Us\source\obj\Debug\netstandard2.1\TownOfUs.csprojAssemblyReference.cache
+C:\Users\juldr\Documents\Town-Of-Us\source\obj\Debug\netstandard2.1\TownOfUs.AssemblyInfoInputs.cache
+C:\Users\juldr\Documents\Town-Of-Us\source\obj\Debug\netstandard2.1\TownOfUs.AssemblyInfo.cs
+C:\Users\juldr\Documents\Town-Of-Us\source\obj\Debug\netstandard2.1\TownOfUs.csproj.CoreCompileInputs.cache
+C:\Users\juldr\Documents\Town-Of-Us\source\bin\Debug\netstandard2.1\TownOfUs.deps.json
+C:\Users\juldr\Documents\Town-Of-Us\source\bin\Debug\netstandard2.1\TownOfUs.dll
+C:\Users\juldr\Documents\Town-Of-Us\source\bin\Debug\netstandard2.1\TownOfUs.pdb
+C:\Users\juldr\Documents\Town-Of-Us\source\bin\Debug\netstandard2.1\Reactor-2021.4.12s.dll
+C:\Users\juldr\Documents\Town-Of-Us\source\obj\Debug\netstandard2.1\TownOfUs.csproj.CopyComplete
+C:\Users\juldr\Documents\Town-Of-Us\source\obj\Debug\netstandard2.1\TownOfUs.dll
+C:\Users\juldr\Documents\Town-Of-Us\source\obj\Debug\netstandard2.1\TownOfUs.pdb

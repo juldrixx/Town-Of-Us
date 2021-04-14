@@ -97,7 +97,7 @@ namespace TownOfUs.Roles
             Player.Data.IsImpostor = true;
         }
 
-        protected override void IntroPrefix(IntroCutscene._CoBegin_d__11 __instance)
+        protected override void IntroPrefix(IntroCutscene.Nested_0 __instance)
         {
             var glitchTeam = new Il2CppSystem.Collections.Generic.List<PlayerControl>();
             glitchTeam.Add(PlayerControl.LocalPlayer);
@@ -330,12 +330,12 @@ namespace TownOfUs.Roles
                     DistClosest = Utils.getDistBetweenPlayers(this.Player, this.ClosestPlayer);
             }
 
-            Player.nameText.Color = Color;
+            Player.nameText.color = Color;
 
             if (MeetingHud.Instance != null)
                 foreach (PlayerVoteArea player in MeetingHud.Instance.playerStates)
                     if (player.NameText != null && this.Player.PlayerId == player.TargetPlayerId)
-                        player.NameText.Color = Color;
+                        player.NameText.color = Color;
 
             if (HudManager.Instance != null && HudManager.Instance.Chat != null)
                 foreach (var bubble in HudManager.Instance.Chat.chatBubPool.activeChildren)

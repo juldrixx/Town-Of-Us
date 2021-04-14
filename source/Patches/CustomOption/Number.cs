@@ -45,11 +45,11 @@ namespace TownOfUs.CustomOption
             base.OptionCreated();
             var number = Setting.Cast<NumberOption>();
 
-            number.TitleText.Text = Name;
+            number.TitleText.text = Name;
             number.ValidRange = new FloatRange(Min, Max);
             number.Increment = Increment;
             number.Value = number.oldValue = Get();
-            number.ValueText.Text = ToString();
+            number.ValueText.text = ToString();
         }
     }
 }

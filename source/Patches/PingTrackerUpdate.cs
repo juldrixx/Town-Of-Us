@@ -1,6 +1,7 @@
 using System.Linq;
 using HarmonyLib;
 using TownOfUs.CustomHats;
+using UnityEngine;
 
 namespace TownOfUs {
 
@@ -50,22 +51,27 @@ namespace TownOfUs {
             return $"\n{data.name} hat by {data.author}";
         }
         
-        
+        [HarmonyPostfix]
         public static void Postfix(PingTracker __instance)
         {
-            //__instance.text.Text += "\n> [FFBFCCFF]T[FF80D5FF]o[FFCC00FF]w[704FA8FF]n[FF0000FF] of[CC4D00FF] Us [FFFFFFFF] <\nBy [00FF00FF]slushiegoose[FFFFFFFF]";
-            __instance.text.Text += "\n[00FF00FF]TownOfUs\nv2.0.0\nslushiegoose ft. edisonparklive[]";
+            var component =  __instance.GetComponent<AspectPosition>();
+            component.DistanceFromEdge = new Vector3(2.7f, 0.4f, 0.0f);
+            component.AdjustPosition();
+            __instance.text.text = "<color=#00FF00FF>TownOfUs v2.0.1</color>\n" + string.Format("Ping: {0}ms", AmongUsClient.Instance.Ping);
+            
+            /*             
             if (!MeetingHud.Instance)
             {
-                __instance.text.Text += "\nButton Art by PhasmoFireGod";
+                __instance.text.text += "\nButton Art by PhasmoFireGod";
                 if (HatCreation.IdToData.ContainsKey(PlayerControl.LocalPlayer.Data.HatId))
                 {
                     var data = HatCreation.IdToData[PlayerControl.LocalPlayer.Data.HatId];
 
 
-                    __instance.text.Text += GenerateHatText(data);
+                    __instance.text.text += GenerateHatText(data);
                 }
-            }
+            } 
+            */
         }
         
     }

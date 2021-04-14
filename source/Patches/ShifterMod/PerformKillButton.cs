@@ -5,9 +5,6 @@ using HarmonyLib;
 using Hazel;
 using Il2CppSystem.Collections.Generic;
 using Reactor.Extensions;
-using Reactor.Net;
-using TownOfUs.JesterMod;
-using TownOfUs.LoversMod;
 using TownOfUs.Roles;
 using TownOfUs.Roles.Modifiers;
 using UnityEngine;
@@ -189,7 +186,7 @@ namespace TownOfUs.ShifterMod
                         var target = executioner.target;
                         if (other == target)
                         {
-                            executioner.target.nameText.Color = Color.white;;
+                            executioner.target.nameText.color = Color.white;
                             executioner.target = shifter;
                             
                             executioner.RegenTask();
@@ -266,7 +263,7 @@ namespace TownOfUs.ShifterMod
                     {
                         foreach (var player in PlayerControl.AllPlayerControls)
                         {
-                            player.nameText.Color = Color.white;
+                            player.nameText.color = Color.white;
                             
                         }
                     }

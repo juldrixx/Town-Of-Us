@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "JmiGkAPzcszPuZWbQvaqW5wuKtFoDSpXTPm75xcPpUH5IsFbv70q9AomvmURwR85JLb40cAPxTlblyN+KVlODA==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\juldr\\Documents\\Town-Of-Us\\source\\TownOfUs.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\juldr\\.nuget\\packages\\reactor.oxygenfilter.msbuild\\0.3.0\\reactor.oxygenfilter.msbuild.0.3.0.nupkg.sha512"
+  ],
+  "logs": []
+}

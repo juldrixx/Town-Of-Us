@@ -4,6 +4,7 @@ using System.Linq;
 using HarmonyLib;
 using Hazel;
 using Reactor.Extensions;
+using TMPro;
 using TownOfUs.Roles.Modifiers;
 using UnhollowerBaseLib;
 using UnityEngine;
@@ -46,7 +47,7 @@ namespace TownOfUs.Roles
             {
                 if (_player != null)
                 {
-                    _player.nameText.Color = Color.white;
+                    _player.nameText.color = Color.white;
                 }
 
                 _player = value;
@@ -103,7 +104,7 @@ namespace TownOfUs.Roles
             return GetRole(PlayerControl.LocalPlayer) == this;
         }
 
-        protected virtual void IntroPrefix(IntroCutscene._CoBegin_d__11 __instance)
+        protected virtual void IntroPrefix(IntroCutscene.Nested_0 __instance)
         {
         }
 
@@ -266,11 +267,11 @@ namespace TownOfUs.Roles
         }
         public static class IntroCutScenePatch
         {
-            public static TextRenderer ModifierText;
+            public static TextMeshPro ModifierText;
 
             public static float Scale;
 
-            [HarmonyPatch(typeof(IntroCutscene), nameof(IntroCutscene.HMLCOCAJBGM))]
+            [HarmonyPatch(typeof(IntroCutscene), nameof(IntroCutscene.BeginCrewmate))]
             public static class IntroCutscene_BeginCrewmate
             {
                 public static void Postfix(IntroCutscene __instance)
@@ -281,7 +282,7 @@ namespace TownOfUs.Roles
                     {
                         ModifierText = Object.Instantiate(__instance.Title, __instance.Title.transform.parent, false);
                         //System.Console.WriteLine("MODIFIER TEXT PLEASE WORK");
-                        Scale = ModifierText.scale;
+                        Scale = ModifierText.fontSize;
                     }
                     else
                     {
@@ -290,7 +291,7 @@ namespace TownOfUs.Roles
                 }
             }
 
-            [HarmonyPatch(typeof(IntroCutscene), nameof(IntroCutscene.DLGJDGFGAEA))]
+            [HarmonyPatch(typeof(IntroCutscene), nameof(IntroCutscene.BeginImpostor))]
             public static class IntroCutscene_BeginImpostor
             {
                 public static void Postfix(IntroCutscene __instance)
@@ -301,7 +302,7 @@ namespace TownOfUs.Roles
                     {
                         ModifierText = Object.Instantiate(__instance.Title, __instance.Title.transform.parent, false);
                         //System.Console.WriteLine("MODIFIER TEXT PLEASE WORK");
-                        Scale = ModifierText.scale;
+                        Scale = ModifierText.fontSize;
                     }
                     else
                     {
@@ -311,12 +312,12 @@ namespace TownOfUs.Roles
             }
 
 
-            [HarmonyPatch(typeof(IntroCutscene._CoBegin_d__11), nameof(IntroCutscene._CoBegin_d__11.MoveNext))]
+            [HarmonyPatch(typeof(IntroCutscene.Nested_0), nameof(IntroCutscene.Nested_0.MoveNext))]
             public static class IntroCutscene_CoBegin__d_MoveNext
             {
                 public static float TestScale;
 
-                public static void Prefix(IntroCutscene._CoBegin_d__11 __instance)
+                public static void Prefix(IntroCutscene.Nested_0 __instance)
                 {
                     var role = GetRole(PlayerControl.LocalPlayer);
 
@@ -330,20 +331,20 @@ namespace TownOfUs.Roles
                 }
 
 
-                public static void Postfix(IntroCutscene._CoBegin_d__11 __instance)
+                public static void Postfix(IntroCutscene.Nested_0 __instance)
                 {
                     var role = GetRole(PlayerControl.LocalPlayer);
-                    var alpha = __instance.__this.Title.Color.a;
+                    var alpha = __instance.__this.Title.color.a;
                     if (role != null && !role.Hidden)
                     {
 
-                        __instance.__this.Title.Text = role.Name;
-                        __instance.__this.Title.Color = role.Color;
-                        __instance.__this.ImpostorText.Text = role.ImpostorText();
+                        __instance.__this.Title.text = role.Name;
+                        __instance.__this.Title.color = role.Color;
+                        __instance.__this.ImpostorText.text = role.ImpostorText();
                         __instance.__this.ImpostorText.gameObject.SetActive(true);
                         __instance.__this.BackgroundBar.material.color = role.Color;
-                        TestScale = Mathf.Max(__instance.__this.Title.scale, TestScale);
-                        __instance.__this.Title.scale = TestScale / role.Scale;
+                        TestScale = Mathf.Max(__instance.__this.Title.fontSize, TestScale);
+                        __instance.__this.Title.fontSize = TestScale / role.Scale;
 
                     }
                     /*else if (!__instance.isImpostor)
@@ -354,9 +355,9 @@ namespace TownOfUs.Roles
                     if (ModifierText != null)
                     {
                         var modifier = Modifier.GetModifier(PlayerControl.LocalPlayer);
-                        ModifierText.Text = "Modifier: " + modifier.Name;
-                        ModifierText.Color = modifier.Color;
-                        ModifierText.scale = Scale / 3f;
+                        ModifierText.text = "Modifier: " + modifier.Name;
+                        ModifierText.color = modifier.Color;
+                        ModifierText.fontSize = Scale / 3f;
                         ModifierText.transform.position =
                             __instance.__this.transform.position - new Vector3(0f, 2.1f, 0f);
                         ModifierText.gameObject.SetActive(true);
@@ -538,14 +539,14 @@ namespace TownOfUs.Roles
                     var role = GetRole(player);
                     if (role != null && role.Criteria())
                     {
-                        player.NameText.Color = role.Color;
-                        player.NameText.Text = role.NameText(player);
+                        player.NameText.color = role.Color;
+                        player.NameText.text = role.NameText(player);
                     }
                     else
                     {
                         try
                         {
-                            player.NameText.Text = role.Player.name;
+                            player.NameText.text = role.Player.name;
                         }
                         catch
                         {
@@ -568,8 +569,8 @@ namespace TownOfUs.Roles
 
                     if (!(player.Data.IsImpostor && PlayerControl.LocalPlayer.Data.IsImpostor))
                     {
-                        player.nameText.Text = player.name;
-                        player.nameText.Color = Color.white;
+                        player.nameText.text = player.name;
+                        player.nameText.color = Color.white;
                     }
 
                     var role = GetRole(player);
@@ -577,8 +578,8 @@ namespace TownOfUs.Roles
                     {
                         if (role.Criteria())
                         {
-                            player.nameText.Color = role.Color;
-                            player.nameText.Text = role.NameText();
+                            player.nameText.color = role.Color;
+                            player.nameText.text = role.NameText();
                             continue;
                         }
                     }

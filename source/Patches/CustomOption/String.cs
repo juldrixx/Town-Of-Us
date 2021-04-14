@@ -33,9 +33,9 @@ namespace TownOfUs.CustomOption
         {
             var str = Setting.Cast<StringOption>();
 
-            str.TitleText.Text = Name;
+            str.TitleText.text = Name;
             str.Value = str.oldValue = Get();
-            str.ValueText.Text = ToString();
+            str.ValueText.text = ToString();
         }
         
         

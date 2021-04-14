@@ -9,7 +9,7 @@ namespace TownOfUs.Roles
         public bool TargetVotedOut = false;
         public PlayerControl target;
         
-        protected override void IntroPrefix(IntroCutscene._CoBegin_d__11 __instance)
+        protected override void IntroPrefix(IntroCutscene.Nested_0 __instance)
         {
             var executionerteam = new List<PlayerControl>();
             executionerteam.Add(PlayerControl.LocalPlayer);

@@ -14,7 +14,7 @@ namespace TownOfUs.Roles
         public int Num {get; set;} 
         public bool LoverImpostor {get; set;} 
 
-        protected override void IntroPrefix(IntroCutscene._CoBegin_d__11 __instance)
+        protected override void IntroPrefix(IntroCutscene.Nested_0 __instance)
         {
             var loverTeam = new Il2CppSystem.Collections.Generic.List<PlayerControl>();
             loverTeam.Add(PlayerControl.LocalPlayer);
@@ -48,8 +48,8 @@ namespace TownOfUs.Roles
             );
             if (PlayerControl.LocalPlayer.Data.IsImpostor && RoleType == RoleEnum.LoverImpostor)
             {
-                Player.nameText.Color = Palette.ImpostorRed;
-                if (player != null) player.NameText.Color = Palette.ImpostorRed;
+                Player.nameText.color = Palette.ImpostorRed;
+                if (player != null) player.NameText.color = Palette.ImpostorRed;
                 return Player.name + "\n" + "Impostor";
             }
             
