@@ -1,3 +1,4 @@
 .vs/
 *.sln
 source/bin
+source/obj
