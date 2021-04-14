@@ -19,7 +19,7 @@ namespace TownOfUs.ChildMod
             var pos = __instance.WinText.transform.localPosition;
             pos.y = 1.5f;
             text.transform.position = pos;
-            text.text = "<size=4>" + text.text + "</size>";
+            text.fontSize = 1f;
         }
     }
 }
