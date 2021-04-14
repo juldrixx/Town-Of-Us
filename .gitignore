@@ -1,3 +1,4 @@
-AmongUs/
 .vs/
 *.sln
+source/bin
+source/obj
